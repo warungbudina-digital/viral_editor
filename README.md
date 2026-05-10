@@ -12,6 +12,8 @@ V1 ini adalah scaffold yang sudah bisa:
 - membangun edit plan heuristik
 - menjalankan dry-run render
 - mencoba render clip dasar via ffmpeg concat
+- burn-in subtitle dasar dari analyzer JSON
+- crop dasar ke 9:16 / 1:1 via ffmpeg
 
 Belum fokus ke:
 - caption burn-in penuh
@@ -40,3 +42,13 @@ Lalu buka:
 ## Catatan runtime
 
 Agar `render` bekerja, `source_video_path` harus mengarah ke file yang benar-benar bisa diakses di dalam container.
+
+
+## Deploy sebagai service tool untuk n8n
+
+Repo ini sekarang juga punya `docker-compose.example.yml` agar bisa dipasang sebagai service tool terpisah yang hidup di network Docker yang sama dengan `n8n-main` dan `n8n-worker`.
+
+Contoh internal URL dari n8n:
+- `http://viral_editor:9020/healthz`
+- `http://viral_editor:9020/plan`
+- `http://viral_editor:9020/render`
