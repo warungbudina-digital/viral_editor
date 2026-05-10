@@ -52,3 +52,11 @@ Contoh internal URL dari n8n:
 - `http://viral_editor:9020/healthz`
 - `http://viral_editor:9020/plan`
 - `http://viral_editor:9020/render`
+
+
+## Render worker host compose
+
+Untuk host render terpisah, repo ini sekarang punya:
+- `docker-compose.render-worker.yml`
+- `.env.render-worker.example`
+- `deploy/README.render-worker.md`
