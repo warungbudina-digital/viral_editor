@@ -1,0 +1,22 @@
+services:
+  viral_editor:
+    build: .
+    container_name: viral_editor
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9020:9020"
+    networks:
+      - n8n_net
+    volumes:
+      - ./examples:/data/examples
+      - ./output:/data/output
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:9020/healthz', timeout=5)\" || exit 1"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+networks:
+  n8n_net:
+    external: true
